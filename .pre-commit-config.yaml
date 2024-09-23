@@ -58,3 +58,8 @@ repos:
     hooks:
       - id: cpplint
         args: ['--quiet']
+
+-   repo: https://github.com/gitleaks/gitleaks
+    rev: v8.19.2
+    hooks:
+      - id: gitleaks
