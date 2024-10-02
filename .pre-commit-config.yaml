@@ -5,22 +5,18 @@ repos:
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
     -   id: name-tests-test
+
+  #--------------
+  # Check Python
+  #--------------
 -   repo: https://github.com/pycqa/flake8
     rev: 3.9.0
     hooks:
     -   id: flake8
-# -   repo: https://github.com/pre-commit/mirrors-scss-lint
-#     rev: v0.57.1-1
-#     hooks:
-#     -   id: scss-lint
-# -   repo: https://github.com/pre-commit/mirrors-ruby-lint
-#     rev: v2.3.1-1
-#     hooks:
-#     -   id: ruby-lint
--   repo: https://github.com/pre-commit/mirrors-jshint
-    rev: v2.9.7
-    hooks:
-    -   id: jshint
+
+  #----------
+  # Check C# 
+  #----------
 
   # Disable dotnet-format until https://github.com/dotnet/sdk/issues/39723 is resolved.
 
@@ -32,33 +28,40 @@ repos:
 
   # TODO Find a C# linter hook that uses .editorconfig
 
-  # Check C, C++, C# code formatting with clang-format
+  #-------------
+  # Check C/C++ 
+  #-------------
 -   repo: https://github.com/pre-commit/mirrors-clang-format
     rev: v17.0.5
     hooks:
       - id: clang-format
         types_or: [c,c++,c#]
 
-
-# Check Shell Scripts
--   repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
-    hooks:
-      - id: shellcheck
-
-  # Check GitHub Actions workflows
--   repo: https://github.com/rhysd/actionlint
-    rev: v1.7.1
-    hooks:
-      - id: actionlint
-
-  # Check C, C++ code with cpplint
 -   repo: https://github.com/cpplint/cpplint
     rev: 1.6.1
     hooks:
       - id: cpplint
         args: ['--quiet']
 
+  #---------------------
+  # Check Shell Scripts
+  #---------------------
+-   repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+
+  #------------------------
+  # Check GitHub workflows
+  #------------------------
+-   repo: https://github.com/rhysd/actionlint
+    rev: v1.7.1
+    hooks:
+      - id: actionlint
+
+  #--------------------------------------
+  # Check for exposed passwords and keys
+  #--------------------------------------
 -   repo: https://github.com/gitleaks/gitleaks
     rev: v8.19.2
     hooks:
